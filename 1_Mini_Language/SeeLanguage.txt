@@ -33,7 +33,7 @@ See Language Specification:
 Syntax :
     type ::= "char"|"int"|"string"|"bool"
     math_opp ::= "*"|"+"|"-"|"+"|"/"|"%"|"=="
-    math_expr ::= math_expr math_opp int
+    math_expr ::= math_expr math_opp int |int math_opp int
     relation ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
     expression ::= math_expr | string | "sqrt(" ( identifier | const )  ")"
     condition ::= expression relation expression | bool
