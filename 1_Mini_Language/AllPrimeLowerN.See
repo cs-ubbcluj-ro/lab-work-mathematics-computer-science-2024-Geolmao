@@ -1,7 +1,6 @@
-number n; 
-read n;
-number x = 0;
-number i = 2;
+int n = read;
+int x = 0;
+int i = 2;
 bool prime ;
 
 while (x < n) {
@@ -21,4 +20,3 @@ while (x < n) {
     }
     i = i+1;
 }
-write('\n');
