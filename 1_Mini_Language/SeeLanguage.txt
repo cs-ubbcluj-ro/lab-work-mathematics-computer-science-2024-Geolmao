@@ -16,7 +16,7 @@ See Language Specification:
     separators
           [ ] { } ; space
     reserved words
-        char, int ,if, else, const, do, while, read, write
+        char, int ,if, else, const, do, while, read, write , struct
           
           identifier ::= letter | letter{letter}{digit}
           letter ::= "a" | "b" |...| "z" | "A" | "B" | ... | "Z" 
@@ -33,7 +33,7 @@ See Language Specification:
 Syntax :
     type ::= "char"|"int"|"string"|"bool"
     math_opp ::= "*"|"+"|"-"|"+"|"/"|"%"|"=="
-    math_expr ::= math_expr math_opp int |int math_opp int
+    math_expr ::= math_expr math_opp int |int math_opp int | identifier 
     relation ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
     expression ::= math_expr | string | "sqrt(" ( identifier | const )  ")"
     condition ::= expression relation expression | bool
@@ -58,6 +58,9 @@ Syntax :
     while_statement ::= "while" "(" condition ")" "{" atomic_statement "}"
     do_while ::= "do" "{" atomic_statement "}" "while" "(" condition ")" ";"
 
+    declaration ::= type identifier ";"
+    struct ::= "struct" [identifier] "{" declaration |{declaration | struct} "}"
+ 
     statement ::= atomic_statement | if_statement | while_statement | do_while
 
     declaration ::= type identifier ";"
