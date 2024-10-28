@@ -16,7 +16,7 @@ See Language Specification:
     separators
           [ ] { } ; space
     reserved words
-        char, int ,if, else, const, do, while, read, write, 
+        char, int ,if, else, const, do, while, read, write
           
           identifier ::= letter | letter{letter}{digit}
           letter ::= "a" | "b" |...| "z" | "A" | "B" | ... | "Z" 
@@ -31,17 +31,17 @@ See Language Specification:
         string::=" ' "char{string}" ' "
         char::=letter|digit
 Syntax :
-    type ::= "char"|"int"|"double"|"bool"
+    type ::= "char"|"int"|"string"|"bool"
     math_opp ::= "*"|"+"|"-"|"+"|"/"|"%"|"=="
     math_expr ::= math_expr math_opp int
     relation ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
     expression ::= math_expr | string | "sqrt(" ( identifier | const )  ")"
     condition ::= expression relation expression | bool
  
-    definitie_char ::= "cara" identifier "=" char ";"
-    definitie_string ::= "șir" identifier "=" string ";"
-    definitie_int ::= "număr" identifier "=" (int | math_expr) ";"
-    definitie_bool ::= "bul" identifier "=" bool
+    definitie_char ::= "char" identifier "=" char ";"
+    definitie_string ::= "string" identifier "=" string ";"
+    definitie_int ::= "int" identifier "=" (int | math_expr) ";"
+    definitie_bool ::= "bool" identifier "=" bool
 
     definition ::= definitie_char | definitie_int | definitie_string 
 
