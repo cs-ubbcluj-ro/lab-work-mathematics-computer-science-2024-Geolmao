@@ -1,0 +1,65 @@
+See Language Specification:
+
+ 1 .Language Definition:
+
+  1.1 Alphabet:
+
+  1.1.a. Upper (A-Z) and lower case letters (a-z) 
+
+      b. Underline character '_';
+
+      c. Decimal digits (0-9);
+
+2. Lexic: 
+    operators
+        + - * / < <= = >= *= += -= /=  ==
+    separators
+          [ ] { } ; space
+    reserved words
+        char, int ,if, else, const, do, while, read, write, 
+          
+          identifier ::= letter | letter{letter}{digit}
+          letter ::= "a" | "b" |...| "z" | "A" | "B" | ... | "Z" 
+          digit ::= "0" | "1" |...| "9"
+          bool ::= "true" | "false"
+
+    constants 
+        int::=+number|-number|number
+        number::=digit{number}
+        char::=digit|letter 
+    strings
+        string::=" ' "char{string}" ' "
+        char::=letter|digit
+Syntax :
+    type ::= "char"|"int"|"double"|"bool"
+    math_opp ::= "*"|"+"|"-"|"+"|"/"|"%"|"=="
+    math_expr ::= math_expr math_opp int
+    relation ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
+    expression ::= math_expr | string | "sqrt(" ( identifier | const )  ")"
+    condition ::= expression relation expression | bool
+ 
+    definitie_char ::= "cara" identifier "=" char ";"
+    definitie_string ::= "șir" identifier "=" string ";"
+    definitie_int ::= "număr" identifier "=" (int | math_expr) ";"
+    definitie_bool ::= "bul" identifier "=" bool
+
+    definition ::= definitie_char | definitie_int | definitie_string 
+
+    assignment_int ::= identifier "=" int ";"
+    assignment_char ::= identifier "=" char ";"
+    assignment_string ::= identifier "=" string ";"
+    assignment ::= assignment_int | assignment_char | assignment_string
+
+    
+    io_statement ::= "read" | "write" "(" identifier ")"
+    atomic_statement ::= (definition | assignment | io_atomic_statement ){atomic_statement}
+
+    if_statement ::= "if" "(" condition ")" "{" atomic_statement "}" ["else" "{" atomic_statement "}"  ]
+    while_statement ::= "while" "(" condition ")" "{" atomic_statement "}"
+    do_while ::= "do" "{" atomic_statement "}" "while" "(" condition ")" ";"
+
+    statement ::= atomic_statement | if_statement | while_statement | do_while
+
+    declaration ::= type identifier ";"
+
+    program ::= {definition}{statement}
